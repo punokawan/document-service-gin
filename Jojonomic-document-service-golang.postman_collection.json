@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "646f5d5d-926e-4dcf-8b04-a8b29a01f0ae",
+		"name": "Jojonomic/document-service-golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root List '/document-service'",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/document-service/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"document-service",
+						""
+					]
+				},
+				"description": "Get list of a root of documents. The service will show all document and folder from the user's company. The company_id is provided by jwt token."
+			},
+			"response": []
+		},
+		{
+			"name": "Set (Create/Update) document '/document-service/document'",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"a29ef14c-ba5b-42cc-a50f-dcbd017c42a3\",\r\n    \"name\": \"Document Job desc Tech\",\r\n    \"type\": \"document\",\r\n    \"folder_id\": \"82b07a6f-60cc-4403-8fd2-329ef0de0d3d\", \r\n    \"content\": {\r\n        \"blocks\": [\r\n            {\r\n                \"type\": \"paragraph\",\r\n                \"text\": \"This is paragraphycss\"\r\n            }\r\n            ]\r\n    },\r\n    \"is_public\": true,\r\n    \"timestamp\": 1605081795, \r\n    \"share\": [1,23,4232,121], \r\n    \"company_id\": 130\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/document-service/document",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"document-service",
+						"document"
+					]
+				},
+				"description": "Set (Create/Update) document. If the ID exist, system will update the folder. If the Folder ID not exist, system will create the folder. Every folder has owner_id. You can get owner_id from json web token."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail Document",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4500/document-service/document/a29ef14c-ba5b-42cc-a50f-dcbd017c42a3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4500",
+					"path": [
+						"document-service",
+						"document",
+						"a29ef14c-ba5b-42cc-a50f-dcbd017c42a3"
+					]
+				},
+				"description": "Get Detail Document By document_id"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Document",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"a29ef14c-ba5b-42cc-a50f-dcbd017c42a3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/document-service/document",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"document-service",
+						"document"
+					]
+				},
+				"description": "Delete one document by document_id"
+			},
+			"response": []
+		},
+		{
+			"name": "Set (Create/Update) Folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"82b07a6f-60cc-4403-8fd2-329ef0de0d3d\",\r\n    \"name\": \"Folder Baru\", \r\n    \"is_public\": true,\r\n    \"timestamp\": 16576232323,\r\n    \"type\": \"folder\", \r\n    \"share\": [1,23,4232,121], \r\n    \"company_id\": 130\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/document-service/folder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"document-service",
+						"folder"
+					]
+				},
+				"description": "create or update folder"
+			},
+			"response": []
+		},
+		{
+			"name": "List File Per Folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/document-service/folder/82b07a6f-60cc-4403-8fd2-329ef0de0d3d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"document-service",
+						"folder",
+						"82b07a6f-60cc-4403-8fd2-329ef0de0d3d"
+					]
+				},
+				"description": "get list document/file by folder_id"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"82b07a6f-60cc-4403-8fd2-329ef0de0d3d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/document-service/folder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"document-service",
+						"folder"
+					]
+				},
+				"description": "Delete Folder by folder_id"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJKb2pvbm9taWMiLCJpYXQiOjE2MDY2OTYyOTYsImV4cCI6MTYzNjczMjI5NiwiYXVkIjoiam9qb25vbWljLmNvbSIsInN1YiI6Impvam9hcmllZiIsImNvbXBhbnlfaWQiOiIxMzAiLCJ1c2VyX2lkIjoiMTIwIn0.FuaQvsOQFkGp4uYAZSN-vAiWkDVN-LvLQFNL9a3RO0w",
+				"type": "string"
+			}
+		]
+	}
+}
